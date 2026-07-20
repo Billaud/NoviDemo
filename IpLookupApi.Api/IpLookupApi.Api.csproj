@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Composition root: controllers, global exception handler, Program.cs (DI wiring,
+       Quartz/Redis/Swagger/MediatR registration). Το μόνο project που επιτρέπεται να
+       αναφέρεται σε ΟΛΑ τα layers - αυτός είναι ο ρόλος του composition root. -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Quartz.Extensions.Hosting" Version="3.13.1" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.10" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <!-- GlobalExceptionHandler αναφέρεται σε FluentValidation.ValidationException -->
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="IpLookupApi.Domain" />
+    <Using Include="IpLookupApi.Application" />
+    <Using Include="IpLookupApi.Infrastructure" />
+    <!-- Χρειάζεται για το ίδιο το project: το Program.cs (top-level statements, χωρίς
+         δικό του namespace) αναφέρεται σε GlobalExceptionHandler που ζει σε
+         namespace IpLookupApi.Api - χωρίς αυτό δεν το βλέπει (ίδιο θέμα με τα
+         Migrations στο Infrastructure.csproj). -->
+    <Using Include="IpLookupApi.Api" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IpLookupApi.Domain\IpLookupApi.Domain.csproj" />
+    <ProjectReference Include="..\IpLookupApi.Application\IpLookupApi.Application.csproj" />
+    <ProjectReference Include="..\IpLookupApi.Infrastructure\IpLookupApi.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

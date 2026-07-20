@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Innermost layer: entities, value objects, domain exceptions, repository contracts.
+       ΔΕΝ έχει κανένα PackageReference ούτε ProjectReference - αυτό είναι το ίδιο το σημείο
+       του να είναι ξεχωριστό project: ο compiler εγγυάται ότι το Domain δεν μπορεί ποτέ να
+       αναφερθεί σε Application/Infrastructure/Api, ό,τι κι αν γράψει κανείς μέσα. -->
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

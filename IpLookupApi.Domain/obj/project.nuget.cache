@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LdT29/JNQBs=",
+  "success": true,
+  "projectFilePath": "/Users/vasilis/Library/Application Support/Claude/local-agent-mode-sessions/b10b7a41-7e66-41de-8e6a-d85a0c256916/49fff3db-d7e0-4057-80c6-9c9750585957/local_37acde82-f5cb-426a-a2c2-d3b8912c8320/outputs/IpLookupApi.Domain/IpLookupApi.Domain.csproj",
+  "expectedPackageFiles": [
+    "/Users/vasilis/.nuget/packages/microsoft.netcore.app.ref/9.0.17/microsoft.netcore.app.ref.9.0.17.nupkg.sha512",
+    "/Users/vasilis/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.17/microsoft.aspnetcore.app.ref.9.0.17.nupkg.sha512"
+  ],
+  "logs": []
+}
